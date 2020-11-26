@@ -17,12 +17,6 @@ jobs:
             curl -OL https://github.com/google/protobuf/releases/download/v$PROTOC_VERSION/protoc-$PROTOC_VERSION-linux-x86_64.zip
             unzip protoc-$PROTOC_VERSION-linux-x86_64.zip -d $HOME/.local
             rm protoc-$PROTOC_VERSION-linux-x86_64.zip
-            go get -u github.com/gogo/protobuf/protoc-gen-gofast
-            cd $GOPATH/src/github.com/gogo/protobuf
-            git checkout v0.5
-            rm $GOPATH/bin/protoc-gen-gofast
-            go get github.com/gogo/protobuf/protoc-gen-gofast
-            go get golang.org/x/tools/cmd/goimports
       - run:
           name: Test Golang
           command: make go binlog && git diff --exit-code
