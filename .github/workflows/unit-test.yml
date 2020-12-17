@@ -67,8 +67,6 @@ jobs:
         with:
           toolchain: stable
       - name: Test
-        uses: actions-rs/cargo@v1
         env:
           GOPATH: /home/runner/go
-        with:
-          command: build
+        run: make rust
