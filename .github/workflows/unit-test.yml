@@ -45,7 +45,7 @@ jobs:
       - name: Test
         env:
           GOPATH: /home/runner/go
-        run: make cpp && git diff --exit-code
+        run: make c++ && git diff --exit-code
 
   rust:
     name: Test rust generation
@@ -66,13 +66,9 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - uses: actions-rs/cargo@v1
+      - name: Test
+        uses: actions-rs/cargo@v1
         env:
           GOPATH: /home/runner/go
         with:
-          command: check
-          args: --features prost-codec --no-default-features
-      - name: Test
-        env:
-          GOPATH: /home/runner/go
-        run: make rust
+          command: build
