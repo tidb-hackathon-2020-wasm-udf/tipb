@@ -4,14 +4,17 @@ export GOGO_PROTOBUF := ${GOPATH}/pkg/mod/$(shell go mod graph | grep github.com
 
 all: go rust binlog c++
 
-go:
+dependence:
+	go mod download
+
+go: dependence
 	./generate-go.sh
 
-rust:
+rust: dependence
 	cargo build
 
-binlog:
+binlog: dependence
 	./generate-binlog.sh
 
-c++:
+c++: dependence
 	./generate-cpp.sh
