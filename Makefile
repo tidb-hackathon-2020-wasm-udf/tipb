@@ -1,4 +1,4 @@
-export GOGO_PROTOBUF := $(shell go list -f "{{.Dir}}" -m github.com/gogo/protobuf)
+GOGO_PROTOBUF := `go list -f "{{.Dir}}" -m github.com/gogo/protobuf`
 
 .PHONY: all go rust binlog c++
 
@@ -8,13 +8,13 @@ dependence:
 	go mod download
 
 go: dependence
-	./generate-go.sh
+	GOGO_PROTOBUF=${GOGO_PROTOBUF} ./generate-go.sh
 
 rust: dependence
-	cargo build
+	GOGO_PROTOBUF=${GOGO_PROTOBUF} cargo build
 
 binlog: dependence
-	./generate-binlog.sh
+	GOGO_PROTOBUF=${GOGO_PROTOBUF} ./generate-binlog.sh
 
 c++: dependence
-	./generate-cpp.sh
+	GOGO_PROTOBUF=${GOGO_PROTOBUF} ./generate-cpp.sh
