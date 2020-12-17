@@ -67,6 +67,8 @@ jobs:
         with:
           toolchain: stable
       - uses: actions-rs/cargo@v1
+        env:
+          GOPATH: /home/runner/go
         with:
           command: check
           args: --features prost-codec --no-default-features
