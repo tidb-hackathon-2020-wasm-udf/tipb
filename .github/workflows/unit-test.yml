@@ -17,6 +17,8 @@ jobs:
           version: '3.5.1'
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: debug
+        run: go list -f "{{.Dir}}" -m github.com/gogo/protobuf
       - name: Test
         run: make go binlog && git diff --exit-code
 
