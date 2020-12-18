@@ -10,11 +10,11 @@ dependence:
 go: dependence
 	GOGO_PROTOBUF=${GOGO_PROTOBUF} ./generate-go.sh
 
-rust: dependence
-	GOGO_PROTOBUF=${GOGO_PROTOBUF} cargo build
+rust:
+	cargo build
 
 binlog: dependence
 	GOGO_PROTOBUF=${GOGO_PROTOBUF} ./generate-binlog.sh
 
 c++: dependence
-	GOGO_PROTOBUF=${GOGO_PROTOBUF} ./generate-cpp.sh
+	./generate-cpp.sh
