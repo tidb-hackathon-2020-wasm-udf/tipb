@@ -7,5 +7,5 @@ require (
 	github.com/golang/protobuf v1.4.3
 	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
 	golang.org/x/tools v0.0.0-20201125231158-b5590deeca9b
-	google.golang.org/grpc v1.33.2
+	google.golang.org/grpc v1.24.0
 )
