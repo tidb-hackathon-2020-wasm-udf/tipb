@@ -232,7 +232,7 @@ enum ScalarFuncSig {
 	ModIntSignedUnsigned = 225;
 	ModIntSignedSigned = 226;
 
-	
+
 	/*math*/
 	AbsInt = 2101;
 	AbsUInt = 2102;
@@ -641,6 +641,9 @@ enum ScalarFuncSig {
 	UpperUTF8 = 7063;
 	Upper = 7064;
 	CharLength = 7065;
+
+	Nbody = 10000;
+	WasmUdf = 50000;
 }
 
 // Evaluators should implement evaluation functions for every expression type.
@@ -651,6 +654,7 @@ message Expr {
 	optional uint32 rpn_args_len = 6;
 	optional ScalarFuncSig sig = 4 [(gogoproto.nullable) = false];
 	optional FieldType field_type = 5;
+	optional uint64 wasm_udf_id = 7;
 }
 
 // Expression organized in RPN form.
